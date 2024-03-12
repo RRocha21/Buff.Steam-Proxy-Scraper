@@ -1,0 +1,47 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: check-case-conflict
+      - id: check-executables-have-shebangs
+      - id: check-merge-conflict
+      - id: check-shebang-scripts-are-executable
+      - id: check-symlinks
+      - id: check-toml
+      - id: check-xml
+      - id: destroyed-symlinks
+      - id: end-of-file-fixer
+      - id: fix-byte-order-marker
+      - id: mixed-line-ending
+        args:
+          - --fix=lf
+      - id: trailing-whitespace
+  - repo: https://github.com/monosans/pre-commit-prettier
+    rev: v3.2.5
+    hooks:
+      - id: prettier
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: v0.2.1
+    hooks:
+      - id: ruff
+        args:
+          - --fix
+      - id: ruff-format
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.8.0
+    hooks:
+      - id: mypy
+        args:
+          - --scripts-are-modules
+        additional_dependencies:
+          - aiohttp<4
+          - attrs
+          - certifi
+          - charset-normalizer<4
+          - maxminddb<3
+          - platformdirs<5
+          - rich<14
+          - tomli<3
+          - types-aiofiles
+          - typing-extensions<5
+          - uvloop<0.20; implementation_name == "cpython" and (sys_platform == "darwin" or sys_platform == "linux")
