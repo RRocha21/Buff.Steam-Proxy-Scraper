@@ -1,24 +1,28 @@
 #!/bin/bash
 
 # Run the first .sh file
+
+chmod +x ../Steam2Buff-Scraper/buff_proxy_socks5_list.txt
+chmod +x ../Steam2Buff-Scraper/buff_proxy_socks4_list.txt
+chmod +x ../Steam2Buff-Scraper/buff_proxy_http_list.txt
+
+chmod +x Steam2Buff/out/proxies/steam_proxy_socks5_list.txt
+chmod +x Steam2Buff/out/proxies/steam_proxy_socks4_list.txt
+chmod +x Steam2Buff/out/proxies/steam_proxy_http_list.txt
+
+
+
 cd Steam2Buff
+chmod +x start.sh
 ./start.sh
 cd ..
 
-# Copy 3 files from one folder to another
-cp Steam2Buff/out/proxies/steam_proxy_http_list.txt ../Buff2Steam-Scraper
-cp Steam2Buff/out/proxies/steam_proxy_socks4_list.txt ../Buff2Steam-Scraper
-cp Steam2Buff/out/proxies/steam_proxy_socks5_list.txt ../Buff2Steam-Scraper
+# Copy 3 files from one folder to another and grant read and write permissions
+cp -v Steam2Buff/out/proxies/steam_proxy_http_list.txt ../Steam2Buff-Scraper
 
-# Run the second .sh file
-cd Buff2Steam
-./start.sh
-cd ..
+cp -v Steam2Buff/out/proxies/steam_proxy_socks4_list.txt ../Steam2Buff-Scraper
 
-# Copy 3 files from one folder to another
-cp Buff2Steam/out/proxies/buff_proxy_http_list.txt ../Buff2Steam-Scraper
-cp Buff2Steam/out/proxies/buff_proxy_socks4_list.txt ../Buff2Steam-Scraper
-cp Buff2Steam/out/proxies/buff_proxy_socks5_list.txt ../Buff2Steam-Scraper
+cp -v Steam2Buff/out/proxies/steam_proxy_socks5_list.txt ../Steam2Buff-Scraper
 
 echo "Batch script completed."
 read -p "Press Enter to exit."
