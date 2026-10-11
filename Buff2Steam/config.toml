@@ -162,3 +162,9 @@ sources = [
     "https://raw.githubusercontent.com/zloi-user/hideip.me/main/socks5.txt",
     "https://www.proxy-list.download/api/v1/get?type=socks5",
 ]
+
+[all]
+enabled = true
+sources = [
+    "https://rcloak.com/api/proxies/raw?protocol=all",
+]
